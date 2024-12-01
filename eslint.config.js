@@ -3,6 +3,7 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import eslint from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
+import importAccess from "eslint-plugin-import-access/flat-config";
 import react from "eslint-plugin-react";
 import unusedImports from "eslint-plugin-unused-imports";
 import tseslint from "typescript-eslint";
@@ -31,6 +32,7 @@ export default tseslint.config(
       },
     },
     plugins: {
+      "import-access": importAccess,
       "unused-imports": unusedImports,
     },
     settings: {
@@ -51,6 +53,7 @@ export default tseslint.config(
       "no-useless-return": "error",
       "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-namespace": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -61,6 +64,9 @@ export default tseslint.config(
       ],
       "@typescript-eslint/prefer-enum-initializers": "error",
       "@typescript-eslint/prefer-literal-enum-member": "error",
+      "import/no-unresolved": "off",
+      // NOTE: latest tseslint not supported.
+      // "import-access/jsdoc": ["error"],
       "react-hooks/exhaustive-deps": "error",
       "unused-imports/no-unused-imports": "error",
     },
@@ -68,5 +74,5 @@ export default tseslint.config(
   {
     files: ["**/*.js", "**/*.jsx"],
     ...tseslint.configs.disableTypeChecked,
-  },
+  }
 );

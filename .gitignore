@@ -13,6 +13,7 @@ types
 dist-ssr
 *.local
 .turbo
+.astro
 
 # Editor directories and files
 .vscode/*
