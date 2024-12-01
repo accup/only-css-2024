@@ -1,5 +1,13 @@
 ---
+import OnButton from "../components/state-machine/OnButton.astro"
+import State from "../components/state-machine/State.astro"
+import type { StateClassName } from "../utils/state-machine/StateClassName"
 import * as styles from "./index.css"
+
+const states  = {
+  foo: "foo"as StateClassName,
+  bar: "bar"as StateClassName
+} satisfies Record<string, StateClassName>
 ---
 
 <html lang="ja">
@@ -9,6 +17,9 @@ import * as styles from "./index.css"
   <title>Advent 2024</title>
 </head>
 <body class={styles.body}>
+  <State states={[states.foo, states.bar]} />
+  <OnButton state={states.foo} class={styles.label}>Foo</OnButton>
+  <OnButton state={states.foo} class={styles.label}>Bar</OnButton>
   Hello
 </body>
 </html>

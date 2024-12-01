@@ -1,0 +1,15 @@
+---
+interface Props {
+  readonly states: readonly StateClassName[]
+}
+
+const { states } = Astro.props
+
+import { getStateId } from "../../utils/state-machine/getStateId"
+import type { StateClassName } from "../../utils/state-machine/StateClassName"
+import * as styles from "./State.css"
+---
+
+{
+  states.map((state) => <input id={getStateId(state)} type="radio" class:list={[state, styles.invisible]} />)
+}

@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { getStateId } from '../../utils/state-machine/getStateId';
+import type { StateClassName } from '../../utils/state-machine/StateClassName'
+
+interface Props extends Omit<HTMLAttributes<"label">, "for"> {
+  readonly state: StateClassName;
+}
+
+const {state, ...attrs} = Astro.props;
+---
+
+<label {...attrs} for={getStateId(state)}>
+  <slot />
+</label>
