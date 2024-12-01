@@ -1,6 +1,6 @@
 // see: https://www.typescriptlang.org/tsconfig
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     // Type Checking
 
@@ -31,9 +31,11 @@
           "defaultImportability": "package"
         }
       }
-    ]
+    ],
 
     // Interop Constraints
+
+    "verbatimModuleSyntax": true
 
     // Backwards Compatibility
 
